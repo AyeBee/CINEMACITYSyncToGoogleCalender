@@ -1,0 +1,2 @@
+# CINEMACITYSyncToGoogleCalender
+CINEMACITYのマイページに、予約内容のGoogleカレンダー登録ボタンを追加します。

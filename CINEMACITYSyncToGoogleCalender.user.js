@@ -15,6 +15,8 @@
     Array.from(document.querySelectorAll('#reserves>.reserve-box')).forEach(e => {
         const items = Array.from(e.querySelectorAll('dl > dd')).map(i => i.textContent.trim());
 
+        //console.log(items);
+
         const title = items[0];
 
         const [date, time] = items[1].split(' ');

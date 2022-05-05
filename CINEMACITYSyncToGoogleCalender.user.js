@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CINEMACITY予約Googleカレンダー連携
 // @namespace    http://ayebee.net/
-// @version      1.0
+// @version      1.1
 // @description  CINEMACITYのマイページに、予約内容のGoogleカレンダー登録ボタンを追加します。
 // @author       ayebee
 // @match        https://res.cinemacity.co.jp/TicketReserver/mypage
@@ -13,15 +13,19 @@
     'use strict';
 
     Array.from(document.querySelectorAll('#reserves>.reserve-box')).forEach(e => {
-        const title = e.querySelector('dl > dd:nth-child(2)').textContent.trim();
-        const [date, time] = e.querySelector('dl > dd:nth-child(4)').textContent.split(' ');
+        const items = Array.from(e.querySelectorAll('dl > dd')).map(i => i.textContent.trim());
+
+        const title = items[0];
+
+        const [date, time] = items[1].split(' ');
         const date2 = date.replace(/日\(.\)$/, '').split(/年|月/).map(i => i.padStart(2, '0')).join('');
         const [beginTime, endTime] = time.split('-').map(i => `${date2}T${i.replace(':', '').padStart(4, '0')}00`);
-        const place = e.querySelector('dl > dd:nth-child(6)').textContent.trim();
-        const numberOfSheets = e.querySelector('dl > dd:nth-child(8)').textContent.trim();
-        const sheetName = e.querySelector('dl > dd:nth-child(10)').textContent.trim();
-        const totalPrice = e.querySelector('dl > dd:nth-child(12)').textContent.trim();
-        const number = e.querySelector('dl > dd:nth-child(14)').textContent.trim();
+        
+        const place = items[2];
+        const numberOfSheets = items[3];
+        const sheetName = items[4];
+        const totalPrice = items[5];
+        const number = items[6];
 
         const text = encodeURIComponent(`${title} 【${sheetName}】`);
         const dates = `${beginTime}/${endTime}`;
@@ -51,5 +55,7 @@
         buttonWrapper.style.float = 'right';
 
         e.querySelector('.reserve-num > .clear').before(buttonWrapper);
+
+        console.log(button.textContent)
     });
 })();

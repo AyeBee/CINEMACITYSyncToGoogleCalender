@@ -19,7 +19,7 @@
 
         const title = items[0];
 
-        const [date, time] = items[1].split(' ');
+        const [date, time] = items[1].split("\u{A0}");
         const date2 = date.replace(/日\(.\)$/, '').split(/年|月/).map(i => i.padStart(2, '0')).join('');
         const [beginTime, endTime] = time.split('-').map(i => `${date2}T${i.replace(':', '').padStart(4, '0')}00`);
         

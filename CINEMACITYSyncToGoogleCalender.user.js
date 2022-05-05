@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         CINEMACITY予約Googleカレンダー連携
-// @namespace    http://ayebee.net/
+// @namespace    https://github.com/AyeBee/CINEMACITYSyncToGoogleCalender
 // @version      1.1
 // @description  CINEMACITYのマイページに、予約内容のGoogleカレンダー登録ボタンを追加します。
 // @author       ayebee

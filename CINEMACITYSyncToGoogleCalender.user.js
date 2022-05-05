@@ -55,7 +55,5 @@
         buttonWrapper.style.float = 'right';
 
         e.querySelector('.reserve-num > .clear').before(buttonWrapper);
-
-        console.log(button.textContent)
     });
 })();

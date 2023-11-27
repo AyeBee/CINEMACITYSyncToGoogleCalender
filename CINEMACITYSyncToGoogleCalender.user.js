@@ -33,13 +33,14 @@
         const dates = `${beginTime}/${endTime}`;
         const location = encodeURIComponent(place);
         const details = encodeURIComponent(`
-            【作品名】: ${title}
-            【上映日時】: ${date} ${time}
-            【劇場】: ${place}
-            【枚数】: ${numberOfSheets}
-            【座席】: ${sheetName}
-            【合計金額】: ${totalPrice}
-            【チケット番号】: ${number}
+            【ログイン】https://res.cinemacity.co.jp/TicketReserver/mypage
+            【作品名】${title}
+            【上映日時】${date} ${time}
+            【劇場】${place}
+            【枚数】${numberOfSheets}
+            【座席】${sheetName}
+            【合計金額】${totalPrice}
+            【チケット番号】${number}
         `.trim().split("\n").map(i => i.trim()).join("\n"));
         
         const button = document.createElement('input');

@@ -33,6 +33,7 @@
         const dates = `${beginTime}/${endTime}`;
         const location = encodeURIComponent(place);
         const details = encodeURIComponent(`
+             https://res.cinemacity.co.jp/TicketReserver/mypage
             【ログイン】https://res.cinemacity.co.jp/TicketReserver/mypage
             【作品名】${title}
             【上映日時】${date} ${time}
